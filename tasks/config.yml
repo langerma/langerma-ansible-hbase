@@ -41,7 +41,7 @@
     src: log4j.properties
     dest: "{{ hbase_conf_dir }}/log4j.properties"
     owner: "{{ hbase_user }}"
-    group: "{{ hbase_groupr }}"
+    group: "{{ hbase_group }}"
     mode: 0644
     backup: no
 
@@ -50,7 +50,7 @@
     src: hadoop-metrics2-hbase.properties
     dest: "{{ hbase_conf_dir }}/hadoop-metrics2-hbase.properties"
     owner: "{{ hbase_user }}"
-    group: "{{ hbase_groupr }}"
+    group: "{{ hbase_group }}"
     mode: 0644
     backup: no
 
@@ -59,7 +59,7 @@
     src: jmxremote.access
     dest: "{{ hbase_conf_dir }}/jmxremote.access"
     owner: "{{ hbase_user }}"
-    group: "{{ hbase_groupr }}"
+    group: "{{ hbase_group }}"
     mode: 0644
     backup: no
 
@@ -68,7 +68,7 @@
     src: jmxremote.passwd
     dest: "{{ hbase_conf_dir }}/jmxremote.passwd"
     owner: "{{ hbase_user }}"
-    group: "{{ hbase_groupr }}"
+    group: "{{ hbase_group }}"
     mode: 0644
     backup: no
 
