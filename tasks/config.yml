@@ -1,16 +1,4 @@
 ---
-- name: Adding user hbase to hdfs group
-  user: name=hbase
-        groups=hadoop
-        append=yes
-
-        #- name: create /hbase on hdfs
-        #  shell: sudo -u hdfs hdfs dfs -mkdir /hbase
-
-
-        #- name: chmod for /hbase on hdfs
-        #shell: sudo -u hdfs hdfs dfs -chown hbase /hbase
-
 - name: put /etc/hbase/conf/hbase-site.xml
   template: src=hbase-site.xml dest=/etc/hbase/conf/hbase-site.xml owner=root group=root mode=0644 backup=yes
   register: hbase_site_xml
@@ -35,4 +23,3 @@
 
 - name: create /etc/hbase/conf/core-site.xml
   file: state=link src=/etc/hadoop/conf/core-site.xml dest=/etc/hbase/conf/core-site.xml
-
