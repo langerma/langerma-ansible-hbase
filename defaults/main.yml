@@ -1,5 +1,9 @@
 ---
 hdfs_nameservice_id: tsdb
+hbase_user: "hadoop"
+hbase_group: "hadoop"
+hadoop_install_tar: "hbase-1.4.9-bin.tar.gz"
+hadoop_install_dir: "/app/hbase"
 env_name: default
 hbase_unarchive_prefix: /opt
 hbase_java_home: /usr/lib/jvm/java-8-openjdk-amd64

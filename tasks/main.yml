@@ -1,4 +1,12 @@
 ---
+- name: Create hbase Path
+  file:
+    path: "{{ hbase_install_dir }}"
+    owner: "{{ hbase_user }}"
+    group: "{{ hbase_group }}"
+    state: directory
+    mode: "u=rwx,g=rwx,o=rwx"
+
 - import_tasks: install.yml
   tags: install
 

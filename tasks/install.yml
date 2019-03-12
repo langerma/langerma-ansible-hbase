@@ -1,12 +1,14 @@
 ---
-- name: 'install hbase-master'
-  yum:
-    name: hbase-master
-    state: latest
-  when: '"master" in group_names'
+- name: "copy {{ hbase_install_tar }} to {{ hbase_install_dir }}"
+  copy:
+    src: "files/{{ hbase_install_tar }}"
+    dest: "{{ hbase_install_dir }}"
 
-- name: 'install hbase-regionserver'
-  yum:
-    name: hbase-regionserver
-    state: latest
-  when: '"data" in group_names'
+- name: "Extract {{ hbase_install_tar }} into {{ hbase_install_dir }}"
+  unarchive:
+    remote_src: yes
+    src: "{{ hbase_install_dir }}/{{ hbase_install_tar }}"
+    dest: "{{ hbase_install_dir }}"
+    owner: "{{ hbase_user }}"
+    group: "{{ hbase_group }}"
+    extra_opts: [--strip-components=1]
