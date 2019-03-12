@@ -1,0 +1,38 @@
+---
+- name: Adding user hbase to hdfs group
+  user: name=hbase
+        groups=hadoop
+        append=yes
+
+        #- name: create /hbase on hdfs
+        #  shell: sudo -u hdfs hdfs dfs -mkdir /hbase
+
+
+        #- name: chmod for /hbase on hdfs
+        #shell: sudo -u hdfs hdfs dfs -chown hbase /hbase
+
+- name: put /etc/hbase/conf/hbase-site.xml
+  template: src=hbase-site.xml dest=/etc/hbase/conf/hbase-site.xml owner=root group=root mode=0644 backup=yes
+  register: hbase_site_xml
+  notify:
+    - Restart hbase-master
+    - Restart hbase-regionserver
+
+- name: put "/etc/hbase/conf/hbase-policy.xml"
+  template: src=hbase-policy.xml dest=/etc/hbase/conf/hbase-policy.xml owner=root group=root mode=0644 backup=yes
+  notify:
+    - Restart hbase-master
+    - Restart hbase-regionserver
+
+  #- name: put "/etc/hbase/conf/log4j.properties"
+  #template: src=log4j.properties dest=/etc/hbase/conf/log4j.properties owner=root group=root mode=0644 backup=yes
+
+  #- name: put "/etc/hbase/conf/hadoop-metrics2-hbase.properties"
+  #template: src=hadoop-metrics2-hbase.properties dest=/etc/hbase/conf/hadoop-metrics2-hbase.properties owner=root group=root mode=0644 backup=yes
+
+- name: create /etc/hbase/conf/hdfs-site.xml
+  file: state=link src=/etc/hadoop/conf/hdfs-site.xml dest=/etc/hbase/conf/hdfs-site.xml
+
+- name: create /etc/hbase/conf/core-site.xml
+  file: state=link src=/etc/hadoop/conf/core-site.xml dest=/etc/hbase/conf/core-site.xml
+

@@ -1,0 +1,12 @@
+---
+- name: 'install hbase-master'
+  yum:
+    name: hbase-master
+    state: latest
+  when: '"master" in group_names'
+
+- name: 'install hbase-regionserver'
+  yum:
+    name: hbase-regionserver
+    state: latest
+  when: '"data" in group_names'

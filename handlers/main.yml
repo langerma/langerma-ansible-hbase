@@ -1,0 +1,12 @@
+---
+- name: Force systemd to reread configs
+  systemd: daemon_reload=yes
+  when: ansible_service_mgr == "systemd"
+
+- name: Restart hbase-master
+  service: name=hbase-master state=restarted
+  when: "'master' in group_names"
+
+- name: Restart hbase-regionserver
+  service: name=hbase-regionserver state=restarted
+  when: "'data' in group_names"
