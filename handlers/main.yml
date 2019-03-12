@@ -4,9 +4,9 @@
   when: ansible_service_mgr == "systemd"
 
 - name: Restart hbase-master
-  service: name=hbase-master state=restarted
+  supervisorctl: name=hbase-master state=restarted
   when: "'master' in group_names"
 
 - name: Restart hbase-regionserver
-  service: name=hbase-regionserver state=restarted
+  supervisorctl: name=hbase-regionserver state=restarted
   when: "'data' in group_names"
