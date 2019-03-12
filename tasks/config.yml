@@ -1,4 +1,29 @@
 ---
+- name: Copy master service file
+  template:
+    src: hbase-master.ini.j2
+    dest: "{{ supervisord_ini_dir }}/hbase-master.ini"
+    owner: "{{ hbase_user }}"
+    group: "{{ hbase_group }}"
+    mode: "u=rw,g=r,o=r"
+  when: '"master" in group_names'
+  notify:
+    - Update supervisord
+    - Restart hbase-master
+
+- name: Copy regionserver service file
+  template:
+    src: hbase-regionserver.ini.j2
+    dest: "{{ supervisord_ini_dir }}/hbase-regionserver.ini"
+    owner: "{{ hbase_user }}"
+    group: "{{ hbase_group }}"
+    mode: "u=rw,g=r,o=r"
+  when: '"data" in group_names'
+  notify:
+    - Update supervisord
+    - Restart hbase-regionserver
+
+
 - name: put hbase-site.xml
   template:
     src: hbase-site.xml

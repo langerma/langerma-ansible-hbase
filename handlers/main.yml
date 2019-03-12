@@ -10,3 +10,6 @@
 - name: Restart hbase-regionserver
   supervisorctl: name=hbase-regionserver state=restarted
   when: "'data' in group_names"
+
+- name: Update supervisord
+  shell: supervisorctl reread && supervisorctl update

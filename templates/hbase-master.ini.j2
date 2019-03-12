@@ -1,0 +1,9 @@
+[program:hbase-master]
+user={{ hbase_user }}
+#directory={{ hbase_install_dir }}
+command={{ hbase_install_dir }}/bin/hbase --config {{ hbase_conf_dir }} master
+stopsignal=KILL
+autostart=false
+autorestart=false
+stdout_logfile={{ hbase_log_dir }}/hbase-master.out.log
+stderr_logfile={{ hbase_log_dir }}/hbase-master.err.log
