@@ -1,7 +1,15 @@
 ---
-- name: Create hbase Path
+- name: "Create hbase Path {{ hbase_install_dir }}"
   file:
     path: "{{ hbase_install_dir }}"
+    owner: "{{ hbase_user }}"
+    group: "{{ hbase_group }}"
+    state: directory
+    mode: "u=rwx,g=rwx,o=rwx"
+
+- name: "Create hbase log Path {{ hbase_log_dir }}"
+  file:
+    path: "{{ hbase_log_dir }}"
     owner: "{{ hbase_user }}"
     group: "{{ hbase_group }}"
     state: directory
