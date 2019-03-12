@@ -69,7 +69,7 @@
     dest: "{{ hbase_conf_dir }}/jmxremote.passwd"
     owner: "{{ hbase_user }}"
     group: "{{ hbase_group }}"
-    mode: 0644
+    mode: 0600
     backup: no
 
 - name: create hdfs-site.xml
