@@ -24,6 +24,18 @@
     - Restart hbase-master
     - Restart hbase-regionserver
 
+- name: put hbase-env.sh
+  template:
+    src: hbase-env.sh
+    dest: "{{ hbase_conf_dir }}/hbase-env.sh"
+    owner: "{{ hbase_user }}"
+    group: "{{ hbase_group }}"
+    mode: 0755
+    backup: yes
+  notify:
+    - Restart hbase-master
+    - Restart hbase-regionserver
+
   #- name: put "/etc/hbase/conf/log4j.properties"
   #template: src=log4j.properties dest=/etc/hbase/conf/log4j.properties owner=root group=root mode=0644 backup=yes
 
