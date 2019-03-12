@@ -40,3 +40,4 @@ hbase_rs_jmxremote_port: 10102
 hbase_client_scanner_caching: 2147483647
 hbase_client_scanner_max_result_size: 2097152
 hbase_jmx_monitorpass: "myverysecretpasswordwhynot"
+hbase_jmx_controlpass: "myverysecretpasswordwhynot"
