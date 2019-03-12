@@ -4,7 +4,7 @@ hbase_user: "hadoop"
 hbase_group: "hadoop"
 hbase_install_tar: "hbase-1.4.9-bin.tar.gz"
 hbase_install_dir: "/app/hbase"
-hbase_conf_dir: "{{ hbase_install_dir }}/etc/hbase/conf"
+hbase_conf_dir: "{{ hbase_install_dir }}/conf"
 env_name: default
 hbase_unarchive_prefix: /opt
 hbase_java_home: /usr/lib/jvm/java-8-openjdk-amd64

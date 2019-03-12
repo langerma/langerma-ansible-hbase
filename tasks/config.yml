@@ -1,5 +1,5 @@
 ---
-- name: put /etc/hbase/conf/hbase-site.xml
+- name: put hbase-site.xml
   template:
     src: hbase-site.xml
     dest: "{{ hbase_conf_dir }}/hbase-site.xml"
@@ -12,7 +12,7 @@
     - Restart hbase-master
     - Restart hbase-regionserver
 
-- name: put "/etc/hbase/conf/hbase-policy.xml"
+- name: put hbase-policy.xml
   template:
     src: hbase-policy.xml
     dest: "{{ hbase_conf_dir }}/hbase-policy.xml"
@@ -30,13 +30,13 @@
   #- name: put "/etc/hbase/conf/hadoop-metrics2-hbase.properties"
   #template: src=hadoop-metrics2-hbase.properties dest=/etc/hbase/conf/hadoop-metrics2-hbase.properties owner=root group=root mode=0644 backup=yes
 
-- name: create /etc/hbase/conf/hdfs-site.xml
+- name: create hdfs-site.xml
   file:
     state: link
     src: "{{ hdfs_conf_dir }}/hdfs-site.xml"
     dest: "{{ hbase_conf_dir }}/hdfs-site.xml"
 
-- name: create /etc/hbase/conf/core-site.xml
+- name: create core-site.xml
   file:
     state: link
     src: "{{ hdfs_conf_dir }}/core-site.xml"
