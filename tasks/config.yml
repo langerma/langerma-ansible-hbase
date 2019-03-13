@@ -23,6 +23,18 @@
     - Update supervisord
     - Restart hbase-regionserver
 
+- name: put config.yml
+  template:
+    src: config.yml
+    dest: "{{ hbase_conf_dir }}/config.yml"
+    owner: "{{ hbase_user }}"
+    group: "{{ hbase_group }}"
+    mode: 0644
+    backup: no
+  register: config_yml
+  notify:
+    - Restart hbase-master
+    - Restart hbase-regionserver
 
 - name: put hbase-site.xml
   template:

@@ -42,3 +42,5 @@ hbase_client_scanner_caching: 2147483647
 hbase_client_scanner_max_result_size: 2097152
 hbase_jmx_monitorpass: "myverysecretpasswordwhynot"
 hbase_jmx_controlpass: "myverysecretpasswordwhynot"
+master_prometheus_jmx_port: 9001
+regionserver_prometheus_jmx_port: 9001
