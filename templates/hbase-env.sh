@@ -40,6 +40,8 @@ export HBASE_HEAPSIZE={{ hbase_heapsize }}
 # see http://wiki.apache.org/hadoop/PerformanceTuning
 export HBASE_OPTS="-XX:+UseG1GC"
 
+export HBASE_HOME={{ hbase_install_dir }}/{{ hbase_version }}
+
 # Uncomment one of the below three options to enable java garbage collection logging for the server-side processes.
 
 # This enables basic gc logging to the .out file.
