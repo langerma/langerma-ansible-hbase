@@ -4,13 +4,12 @@ hbase_user: "hadoop"
 hbase_group: "hadoop"
 hbase_install_tar: "hbase-1.4.9-bin.tar.gz"
 hbase_install_dir: "/app/hbase"
-hbase_conf_dir: "{{ hbase_install_dir }}/conf"
-hbase_log_dir: "{{ hbase_install_dir}}/log"
+hbase_version: "1.4.9"
+hbase_conf_dir: "{{ hbase_install_dir }}/{{ hbase_version }}/conf"
+hbase_log_dir: "{{ hbase_install_dir }}/{{ hbase_version }}/log"
 env_name: default
 hbase_unarchive_prefix: /opt
-#hbase_java_home: /usr/lib/jvm/java-8-openjdk-amd64
 hbase_heapsize: 1024
-hbase_version: 1.4.9
 hadoop_suffix: ""
 hbase_standalone: no
 hbase_distr_prefix: /opt/hbase
