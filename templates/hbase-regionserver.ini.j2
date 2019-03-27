@@ -1,7 +1,6 @@
 [program:hbase-regionserver]
 user={{ hbase_user }}
-#directory={{ hbase_install_dir }}
-command={{ hbase_install_dir }}/bin/hbase --config {{ hbase_conf_dir }} regionserver start
+command={{ hbase_install_dir }}/{{ hbase_version }}/bin/hbase --config {{ hbase_conf_dir }} regionserver start
 stopsignal=KILL
 autostart=true
 autorestart=true

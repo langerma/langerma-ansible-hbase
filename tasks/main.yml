@@ -7,6 +7,14 @@
     state: directory
     mode: "u=rwx,g=rwx,o=rwx"
 
+- name: create dir {{ hbase_install_dir }}/{{ hbase_version }}
+  file:
+    path: "{{ hbase_install_dir }}/{{ hbase_version }}"
+    state: directory
+    owner: "{{ hbase_user }}"
+    group: "{{ hbase_group }}"
+    mode: "u=rwx,g=rwx,o=rwx"
+
 - name: "Create hbase log Path {{ hbase_log_dir }}"
   file:
     path: "{{ hbase_log_dir }}"

@@ -7,13 +7,13 @@
 - name: "copy jmx_prometheus_javaagent to {{ hbase_install_dir }}"
   copy:
     src: "files/jmx_prometheus_javaagent-0.11.0.jar"
-    dest: "{{ hbase_install_dir }}/jmx_prometheus_javaagent.jar"
+    dest: "{{ hbase_install_dir }}/{{ hbase_version }}/jmx_prometheus_javaagent.jar"
 
 - name: "Extract {{ hbase_install_tar }} into {{ hbase_install_dir }}"
   unarchive:
     remote_src: yes
     src: "{{ hbase_install_dir }}/{{ hbase_install_tar }}"
-    dest: "{{ hbase_install_dir }}"
+    dest: "{{ hbase_install_dir }}/{{ hbase_version }}"
     owner: "{{ hbase_user }}"
     group: "{{ hbase_group }}"
     extra_opts: [--strip-components=1]
