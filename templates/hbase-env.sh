@@ -41,7 +41,7 @@ export HBASE_HEAPSIZE={{ hbase_heapsize }}
 export HBASE_OPTS="-XX:+UseG1GC"
 
 export HBASE_HOME={{ hbase_install_dir }}/{{ hbase_version }}
-#export HADOOP_HOME={{ hadoop_install_dir }}
+export HADOOP_HOME={{ hadoop_install_dir }}/{{ hadoop_version }}
 
 #source {{ hdfs_conf_dir }}/hadoop-env.sh
 
