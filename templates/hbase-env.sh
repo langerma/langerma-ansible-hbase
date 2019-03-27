@@ -43,7 +43,7 @@ export HBASE_OPTS="-XX:+UseG1GC"
 export HBASE_HOME={{ hbase_install_dir }}/{{ hbase_version }}
 export HADOOP_HOME={{ hadoop_install_dir }}
 
-source {{ hdfs_conf_dir }}/hadoop-env.sh
+#source {{ hdfs_conf_dir }}/hadoop-env.sh
 
 export LD_LIBRARY_PATH=/app/hadoop/lib/native
 
