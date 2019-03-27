@@ -41,6 +41,10 @@ export HBASE_HEAPSIZE={{ hbase_heapsize }}
 export HBASE_OPTS="-XX:+UseG1GC"
 
 export HBASE_HOME={{ hbase_install_dir }}/{{ hbase_version }}
+export HADOOP_HOME={{ hadoop_install_dir }}
+
+source {{ hdfs_conf_dir }}/hadoop-env.sh
+
 export LD_LIBRARY_PATH=/app/hadoop/lib/native
 
 # Uncomment one of the below three options to enable java garbage collection logging for the server-side processes.
