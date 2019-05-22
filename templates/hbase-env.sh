@@ -32,7 +32,15 @@ export JAVA_HOME="{{ java_install_dir }}/{{ java_version }}"
 # export HBASE_CLASSPATH=
 
 # The maximum amount of heap to use, in MB. Default is 1000.
+
+{% if inventory_hostname in groups["data"] %}
+# i am a datanode
 export HBASE_HEAPSIZE={{ hbase_heapsize }}
+{% endif %}
+{% if inventory_hostname in groups["master"] %}
+# i am a masternode
+export HBASE_HEAPSIZE={{ hbase_master_heapsize }}
+{% emdif %}
 
 # Extra Java runtime options.
 # Below are what we set by default.  May only work with SUN JVM.

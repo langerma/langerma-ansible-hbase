@@ -9,7 +9,8 @@ hbase_conf_dir: "{{ hbase_install_dir }}/{{ hbase_version }}/conf"
 hbase_log_dir: "{{ hbase_install_dir }}/{{ hbase_version }}/log"
 env_name: default
 hbase_unarchive_prefix: /opt
-hbase_heapsize: 1024
+hbase_heapsize: 768
+hbase_master_heapsize: 128
 hadoop_suffix: ""
 hbase_standalone: no
 hbase_distr_prefix: /opt/hbase
