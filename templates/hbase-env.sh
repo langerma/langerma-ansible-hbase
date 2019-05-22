@@ -40,7 +40,7 @@ export HBASE_HEAPSIZE={{ hbase_heapsize }}
 {% if inventory_hostname in groups["master"] %}
 # i am a masternode
 export HBASE_HEAPSIZE={{ hbase_master_heapsize }}
-{% emdif %}
+{% endif %}
 
 # Extra Java runtime options.
 # Below are what we set by default.  May only work with SUN JVM.
